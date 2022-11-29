@@ -11,11 +11,14 @@ const Class07 = () => {
     const [data, setData] = useState({});
 
     const getInputs = (e) => {
+        /*   
         const name = e.target.name;
         const value = e.target.value;
-        const inputs = { [name]: value };
+        */
+        const { name, value } = e.target;
+        const input = { [name]: value };
+        setData({ ...data, ...input });
         console.log(data);
-        setData({ ...data, ...inputs });
     };
 
     const handleSubmit = (e) => {
@@ -59,7 +62,9 @@ const Class07 = () => {
                     placeholder="write a date"
                 />
                 <button type="submit">submit</button>
-                <button type="reset">reset</button>
+                <button type="reset" onClick={handleReset}>
+                    reset
+                </button>
             </form>
         </div>
     );
