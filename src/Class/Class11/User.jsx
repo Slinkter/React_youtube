@@ -1,12 +1,13 @@
 import React from "react";
+import HigherOrder from "./HigherOrder";
 
 const User = (props) => {
-    const { users } = props;
+    const { data } = props;
 
     return (
         <div>
             <ul>
-                {users.slice(0, 5).map((user) => {
+                {data.slice(0, 5).map((user) => {
                     return <li key={user.id}>{user.name}</li>;
                 })}
             </ul>
@@ -14,4 +15,6 @@ const User = (props) => {
     );
 };
 
-export default User;
+const UsersComp = HigherOrder("Users", User, "users");
+
+export default UsersComp;
