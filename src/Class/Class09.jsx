@@ -8,10 +8,10 @@ const Class09 = () => {
     const [name, setName] = useState("");
 
     const postData = () => {
-        const url = "";
-        const obj = { name: name, age: 26, hobbie: ["a", "b", "c"] };
+        const url = "http://dominioapi.com/users";
+        const newobj = { name: name, age: 26, hobbie: ["a", "b", "c"] };
         axios
-            .post(url, obj)
+            .post(url, newobj)
             .then((res) => {
                 console.log(res);
             })

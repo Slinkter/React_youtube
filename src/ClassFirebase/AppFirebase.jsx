@@ -1,11 +1,9 @@
 import "./App.css";
 import { useState } from "react";
-import { app, db, storage } from "./ClassFirebase/firebaseConfig";
-import {
-    getAuth,
-    signOut,
-    createUserWithEmailAndPassword,
-} from "firebase/auth";
+import { db, storage } from "./ClassFirebase/firebaseConfig";
+import { getAuth } from "firebase/auth";
+import { signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import {
     collection,
@@ -146,24 +144,17 @@ function App() {
             (snapshot) => {
                 const progress =
                     (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-               
+
                 console.log("upload is ", Number(progress), " % done ");
             },
             (error) => {
-                // A full list of error codes is available at
-                // https://firebase.google.com/docs/storage/web/handle-errors
                 switch (error.code) {
                     case "storage/unauthorized":
-                        // User doesn't have permission to access the object
                         break;
                     case "storage/canceled":
-                        // User canceled the upload
                         break;
 
-                    // ...
-
                     case "storage/unknown":
-                        // Unknown error occurred, inspect error.serverResponse
                         break;
 
                     default:

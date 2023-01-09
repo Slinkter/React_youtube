@@ -3,9 +3,6 @@ import React, { useEffect } from "react";
 const Class04 = () => {
     let age = 22;
     let name = "liam";
-    useEffect(() => {
-        return () => {};
-    }, []);
 
     return (
         <div>

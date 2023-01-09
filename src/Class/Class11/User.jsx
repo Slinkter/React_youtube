@@ -3,15 +3,12 @@ import HigherOrder from "./HigherOrder";
 
 const User = (props) => {
     const { data } = props;
-
     return (
-        <div>
-            <ul>
-                {data.slice(0, 5).map((user) => {
-                    return <li key={user.id}>{user.name}</li>;
-                })}
-            </ul>
-        </div>
+        <ul>
+            {data.slice(0, 5).map((user) => {
+                return <li key={user.id}>{user.name}</li>;
+            })}
+        </ul>
     );
 };
 

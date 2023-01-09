@@ -4,7 +4,6 @@ const Class03 = () => {
     const [name, setName] = useState("Luis");
 
     const handleChangeName = (value) => {
-        console.log(value);
         setName(value);
     };
 
@@ -16,12 +15,14 @@ const Class03 = () => {
 };
 
 const ComponentChild = (props) => {
+    const { name, handleChangeName } = props;
+
     return (
         <div>
-            <h1> {props.name} </h1>
+            <h1> {name} </h1>
             <button
                 onClick={() => {
-                    props.handleChangeName("Jhonny");
+                    handleChangeName("Jhonny");
                 }}
             >
                 Change Name

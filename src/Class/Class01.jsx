@@ -6,12 +6,13 @@ const Class01 = () => {
     const [users, setUsers] = useState([]);
     const [number, setNumber] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 
-    const getDataV1 = async () => {
+    /*  
+        const getDataV1 = async () => {
         const response = await fetch(url);
         const data = await response.json();
         console.log(data);
     };
-
+    */
     const getDataV2 = () => {
         fetch(url)
             .then((response) => response.json())
@@ -28,10 +29,9 @@ const Class01 = () => {
         return () => {};
     }, []);
 
-    const mapData = () => {
+    const btnSearchFilter = () => {
         let filterData = users.filter((user) => {
-            /* return user.name === "Leanne Graham"; */
-            return user.id <= 5;
+            return user.id <= 5; /* return user.name === "Leanne Graham"; */
         });
         setUsers(filterData);
     };
@@ -57,7 +57,7 @@ const Class01 = () => {
                         <p>{user.username}</p>
                     </div>
                 ))}
-                <button onClick={mapData}>show filter</button>
+                <button onClick={btnSearchFilter}>show filter</button>
             </div>
             <h1>Number</h1>
             <div className="card">

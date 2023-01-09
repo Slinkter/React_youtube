@@ -1,4 +1,3 @@
-// 3:14:31
 //  Search text input array
 import React, { useEffect, useState } from "react";
 import "./Class13.css";
