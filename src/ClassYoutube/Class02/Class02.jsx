@@ -9,9 +9,16 @@ const Class02 = () => {
         setIsVisible(!isVisible);
     };
     return (
-        <div>
-            <h2>Count : {count}</h2>
-            {isVisible ? <p> is true </p> : <p>is false</p>}
+        <div className="card-github">
+            <div className="card-inner-github ">
+                <h2>Count : {count}</h2>
+                {isVisible ? (
+                    <p> is visible ? : true </p>
+                ) : (
+                    <p>is visible ? : false</p>
+                )}
+                <br />
+            </div>
             <button onClick={increment}>+</button>
         </div>
     );

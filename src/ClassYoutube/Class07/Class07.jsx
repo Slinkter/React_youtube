@@ -11,13 +11,12 @@ const Class07 = () => {
     const [data, setData] = useState({});
 
     const getInputs = (e) => {
-        /*   
-        const name = e.target.name;
-        const value = e.target.value;
-        */
+        // const name = e.target.name;
+        // const value = e.target.value;
         const { name, value } = e.target;
         const input = { [name]: value };
-        setData({ ...data, ...input });
+        const values = { ...data, ...input };
+        setData(values);
         console.log(data);
     };
 

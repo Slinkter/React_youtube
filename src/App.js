@@ -1,5 +1,5 @@
 import React from "react";
-import ClassYoutube from "./ClassYoutube/Class01/Class01";
+import ClassYoutube from "./ClassYoutube/Class07/Class07";
 
 const App = () => {
     return (

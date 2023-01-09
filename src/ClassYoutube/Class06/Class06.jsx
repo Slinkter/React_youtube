@@ -21,7 +21,7 @@ const Class06 = () => {
             <ul>
                 {details.map((det) => {
                     return (
-                        <div key={det}>
+                        <div key={det.name}>
                             <li>
                                 {det.name} - {det.age}
                             </li>

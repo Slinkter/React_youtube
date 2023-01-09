@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 
 const Class03 = () => {
+    //hooks
     const [name, setName] = useState("Luis");
-
+    // funcion
     const handleChangeName = (value) => {
         setName(value);
     };
