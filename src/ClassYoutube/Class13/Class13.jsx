@@ -2,17 +2,33 @@
 import React, { useEffect, useState } from "react";
 import "./Class13.css";
 
-const Class13 = () => {
-    const [users, setUsers] = useState([]);
-    const [inputText, setInputText] = useState("");
-    const [searchedItems, setSearchedItems] = useState([]);
+const initValues = {
+    users: [],
+    inputText: "",
+    searchItems: [],
+};
+const url = "https://jsonplaceholder.typicode.com/users";
 
+const Class13 = () => {
+    // Hooks
+    const [users, setUsers] = useState(initValues.users);
+    const [inputText, setInputText] = useState(initValues.inputText);
+    const [searchedItems, setSearchedItems] = useState(initValues.searchItems);
+    //
     const getData = async () => {
-        const url = "https://jsonplaceholder.typicode.com/users";
-        const response = await fetch(url);
-        const data = await response.json();
-        setUsers(data);
+        const res = await fetch(url);
+        const data = await res.json();
         console.log(data);
+        setUsers(data);
+    };
+    //
+    const userFilter = () => {
+        return users.filter((user) => {
+            return Object.values(user)
+                .join()
+                .toLowerCase()
+                .includes(inputText.toLowerCase());
+        });
     };
 
     useEffect(() => {
@@ -22,15 +38,9 @@ const Class13 = () => {
     useEffect(() => {
         if (inputText) {
             setTimeout(() => {
-                const usersFilter = users.filter((user) => {
-                    return Object.values(user)
-                        .join()
-                        .toLowerCase()
-                        .includes(inputText.toLowerCase());
-                });
-
+                const usersFilter = userFilter();
                 setSearchedItems(usersFilter);
-            }, 1000);
+            }, 500);
         } else {
             setSearchedItems(users);
         }
@@ -45,23 +55,22 @@ const Class13 = () => {
             />
             <div className="grid-main">
                 {inputText.length > 0
-                    ? searchedItems.map((user) => {
-                          return (
-                              <div key={user.id} className="grid-child">
-                                  <h2>{user.name}</h2>
-                                  <p>{user.username}</p>
-                              </div>
-                          );
-                      })
-                    : users.map((user) => {
-                          return (
-                              <div key={user.id} className="grid-child">
-                                  <h2>{user.name}</h2>
-                                  <p>{user.username}</p>
-                              </div>
-                          );
-                      })}
+                    ? searchedItems.map((user) => (
+                          <ComponentRenderUser usuario={user} />
+                      ))
+                    : users.map((user) => (
+                          <ComponentRenderUser usuario={user} />
+                      ))}
             </div>
+        </div>
+    );
+};
+
+const ComponentRenderUser = ({ usuario }) => {
+    return (
+        <div key={usuario.id} className="grid-child">
+            <h3>{usuario.name}</h3>
+            <p>{usuario.email}</p>
         </div>
     );
 };

@@ -4,14 +4,14 @@
 
 .grid-main {
     display: grid;
-
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto auto;
     gap: 10px;
     padding: 10px;
 }
 
 .grid-child {
-    border: 1px solid gray;
+    border: 2px solid gray;
+    border-radius: 10px;
 }
 
 .search {

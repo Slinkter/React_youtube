@@ -1,8 +1,7 @@
 import React from "react";
 import HigherOrder from "../HigherOrder";
 
-const User = (props) => {
-    const { data } = props;
+const User = ({ data }) => {
     return (
         <ul>
             {data.slice(0, 5).map((user) => {
