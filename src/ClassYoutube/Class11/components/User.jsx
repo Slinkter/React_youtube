@@ -1,5 +1,5 @@
 import React from "react";
-import HigherOrder from "./HigherOrder";
+import HigherOrder from "../HigherOrder";
 
 const User = (props) => {
     const { data } = props;

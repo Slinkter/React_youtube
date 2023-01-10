@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { ComponetContext } from "./GlobalContex";
+import { ComponetContext } from "../GlobalContex";
 
 const Home = () => {
     const { name } = useContext(ComponetContext);

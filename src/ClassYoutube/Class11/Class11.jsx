@@ -1,6 +1,6 @@
 import React from "react";
-import Post from "./Post";
-import User from "./User";
+import Post from "./components/Post";
+import User from "./components/User";
 
 const Class11 = () => {
     return (

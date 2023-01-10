@@ -1,8 +1,7 @@
 import React from "react";
-import HigherOrder from "./HigherOrder";
+import HigherOrder from "../HigherOrder";
 
-const Post = (props) => {
-    const { data } = props;
+const Post = ({ data }) => {
     return (
         <ul>
             {data.slice(0, 5).map((item) => {
@@ -12,6 +11,5 @@ const Post = (props) => {
     );
 };
 
-const PostComp = HigherOrder("Posts", Post, "posts");
-
+const PostComp = HigherOrder("Posts", Post, "posts"); // function (p1,p2,p3) - title, Component, nameRequest
 export default PostComp;
