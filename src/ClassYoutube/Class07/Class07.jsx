@@ -3,21 +3,28 @@ import React, { useState } from "react";
 const styleDiv = {
     display: "flex",
     flexDirection: "column",
-    width: 350,
+    width: 400,
+    background: "red",
+    margin: "0 auto",
 };
-const style = { margin: "10px", border: "1px solid pink", width: 320 };
+const styleInput = {
+    background: "green",
+    margin: "10px",
+    border: "1px solid blue",
+    width: 340,
+    color: "white",
+};
 
 const Class07 = () => {
     const [data, setData] = useState({});
 
     const getInputs = (e) => {
-        // const name = e.target.name;
-        // const value = e.target.value;
         const { name, value } = e.target;
         const input = { [name]: value };
+        //
         const values = { ...data, ...input };
         setData(values);
-        console.log(data);
+        console.log(values);
     };
 
     const handleSubmit = (e) => {
@@ -30,31 +37,31 @@ const Class07 = () => {
     };
 
     return (
-        <div style={styleDiv}>
+        <div className="container" style={styleDiv}>
             <form onSubmit={(e) => handleSubmit(e)}>
                 <input
-                    style={style}
+                    style={styleInput}
                     type="text"
                     name="name"
                     onChange={(e) => getInputs(e)}
                     placeholder="write name"
                 />
                 <input
-                    style={style}
+                    style={styleInput}
                     type="number"
                     name="age"
                     onChange={(e) => getInputs(e)}
                     placeholder="write age"
                 />
                 <input
-                    style={style}
+                    style={styleInput}
                     type="text"
                     name="hobbie"
                     onChange={(e) => getInputs(e)}
                     placeholder="write hobbies"
                 />
                 <input
-                    style={style}
+                    style={styleInput}
                     type="date"
                     name="date"
                     onChange={(e) => getInputs(e)}
